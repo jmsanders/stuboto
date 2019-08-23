@@ -6,6 +6,7 @@ def func_factory(method, action):
         self.method = method
         self.expected_params = kwargs or None
         return self
+
     func.__name__ = method
     return func
 

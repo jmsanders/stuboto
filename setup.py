@@ -13,9 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jmsanders/stuboto",
     packages=setuptools.find_packages(),
-    install_requires=[
-        "boto3>=1.9.213",
-    ],
+    install_requires=["boto3>=1.9.213"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

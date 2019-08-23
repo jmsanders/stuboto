@@ -15,11 +15,8 @@ def test_create_bucket():
     stubber = stub(s3)
 
     response = {"Location": "my-bucket"}
-    expected_params = {
-        "Bucket": "my-bucket",
-        "ACL": "private",
-    }
-    
+    expected_params = {"Bucket": "my-bucket", "ACL": "private"}
+
     stubber.add_response("create_bucket", response, expected_params)
     service_response = s3.create_bucket(Bucket="my-bucket", ACL="private")
     assert service_response == response
@@ -31,13 +28,15 @@ def test_create_bucket():
 import boto3
 from stuboto import stub
 
-  def test_create_bucket():
-      s3 = boto3.client("s3")
-      stubber = stub(s3)
+def test_create_bucket():
+    s3 = boto3.client("s3")
+    stubber = stub(s3)
 
-      response = stubber.create_bucket(Bucket="my-bucket", ACL="private").with_response(Location="my-bucket")
-      service_response = s3.create_bucket(Bucket="my-bucket", ACL="private")
-      assert service_response == response
+    response = stubber.create_bucket(Bucket="my-bucket", ACL="private").with_response(
+        Location="my-bucket"
+    )
+    service_response = s3.create_bucket(Bucket="my-bucket", ACL="private")
+    assert service_response == response
 ```
 
 Because you almost always activate `botocore.stub.Stubber` as soon as you instantiate it, `Stuboto` instances come pre-activated. However, you can still call `stubber.activate()` and `stubber.deactivate()` to your heart's content.
