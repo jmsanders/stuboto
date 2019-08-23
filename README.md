@@ -2,7 +2,7 @@
 
 Stub `boto3` clients to avoid hitting real AWS endpoints in tests.
 
-# Usage
+## Usage
 
 You can use `Stuboto` instances as if they were `botocore.stub.Stubber`:
 
