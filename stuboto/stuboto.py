@@ -12,8 +12,9 @@ def func_factory(method, action):
 
 def stub(client):
     class Stuboto(Stubber):
-        def with_response(self, response={}):
-            self.add_response(self.method, response, self.expected_params)
+        def with_response(self, **kwargs):
+            self.add_response(self.method, kwargs, self.expected_params)
+            return kwargs
 
     for method, action in client.meta.method_to_api_mapping.items():
         setattr(Stuboto, method, func_factory(method, action))
