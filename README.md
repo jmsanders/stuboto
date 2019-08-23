@@ -46,3 +46,9 @@ def test_create_bucket():
 > It should be noted, however, that while missing attributes are often considered correct, your code may not function properly if you leave them out. Therefore you should always fill in every value you see in a typical response for your particular request.
 
 But I won't tell anybody if you leave some values out in favor of writing more readable tests.
+
+## Installation
+
+```bash
+pip install stuboto
+```
