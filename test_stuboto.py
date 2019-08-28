@@ -88,13 +88,13 @@ def test_stubber_has_all_stubbable_methods():
 
 def test_multiple_services_can_be_stubbed():
     s3_stubber = Stuboto(boto3.client("s3"))
-    ec2_stubber = Stuboto(boto3.client("ec2"))
+    iam_stubber = Stuboto(boto3.client("iam"))
 
     s3_methods = [
         attr for attr in dir(s3_stubber) if callable(getattr(s3_stubber, attr))
     ]
-    ec2_methods = [
-        attr for attr in dir(ec2_stubber) if callable(getattr(ec2_stubber, attr))
+    iam_methods = [
+        attr for attr in dir(iam_stubber) if callable(getattr(iam_stubber, attr))
     ]
 
-    assert set(s3_methods) != set(ec2_methods)
+    assert set(s3_methods) != set(iam_methods)
