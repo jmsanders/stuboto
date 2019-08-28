@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jmsanders/stuboto",
-    py_modules = ["stuboto"],
+    py_modules=["stuboto"],
     install_requires=["boto3>=1.9.213"],
     classifiers=[
         "Programming Language :: Python :: 3",

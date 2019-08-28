@@ -67,6 +67,15 @@ def test_stuboto_complex_responses():
     stubber.assert_no_pending_responses()
 
 
+def test_stuboto_context_manager():
+    s3 = boto3.client("s3")
+    with Stuboto(s3) as stubber:
+        response = stubber.create_bucket().add_response(Location="my-bucket")
+        service_response = s3.create_bucket(Bucket="my-bucket", ACL="private")
+
+    assert service_response == response
+
+
 def test_stubber_has_all_stubbable_methods():
     s3 = boto3.client("s3")
     stubber = Stuboto(s3)
